@@ -27,3 +27,7 @@ Now you can enter new commands. For example:
   > { "open" : { "database":"student", "login":"init", "password":"qwerty" }}
   { "status":"OK" }
   ```
+    
+  ***Running From `delete.sh`, `init.sh`, `run.sh`***  
+    
+  ![](https://github.com/bsobocki/Project_DataBase/blob/master/files/run_example.png)

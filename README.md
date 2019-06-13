@@ -14,4 +14,4 @@ You become a party member through active participation in her life. After one ye
  To run the program you need :
 * Python3.x (to interpret all files \*.py),
 * PostgreSQL (DataBase)
-* psycopg2 (to create, connect and manage to the DataBase)_
+* psycopg2 (to create, connect and manage to the DataBase)

@@ -16,7 +16,7 @@ You become a party member through active participation in her life. After one ye
 * PostgreSQL (DataBase)
 * psycopg2 (to create, connect and manage to the DataBase)
 
-# Run in Linux
+## Run in Linux
 The start of the program follows by running the python interpreter using the 'python3' command  with the 'app.py' parameter   
 ```
 ~$ python3 app.py

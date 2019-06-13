@@ -1,5 +1,5 @@
 # Project_DataBase
-Project from DataBase Course from the Institute of Computer Science
+Project from DataBase Course from the Institute of Computer Science.
 
 ##   Program designed to manage a political party  
 

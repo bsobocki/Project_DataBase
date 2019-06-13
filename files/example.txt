@@ -1,0 +1,13 @@
+{"leader": {"timestamp": 111, "password" : "aa", "member" : 1}}
+{"leader": {"timestamp": 112, "password" : "aba", "member" : 4}}
+{"leader": {"timestamp": 113, "password" : "aca", "member" : 10}}
+{ "protest": { "timestamp": 15574, "password": "aa", "member": 1, "action":2, "project":6, "authority" : 4332}}
+{ "support": { "timestamp": 15575, "password": "aba", "member": 4, "action":7, "project":6}}
+{ "downvote": { "timestamp": 1557475702, "password": "ako", "member": 3, "action":2}}
+{ "upvote": { "timestamp": 1557475702, "password": "ako", "member": 3, "action":7}}
+{ "upvote": { "timestamp": 1557475702, "password": "ako", "member": 12, "action":2}}
+{ "downvote": { "timestamp": 1557475702, "password": "aa", "member": 1, "action":7}}
+{ "upvote": { "timestamp": 1557475702, "password": "aa", "member": 1, "action":2}}
+{ "downvote": { "timestamp": 1557475702, "password": "aba", "member": 4, "action":7}}
+{ "downvote": { "timestamp": 1557475702, "password": "aba", "member": 4, "action":2}}
+{ "upvote": { "timestamp": 1557475702, "password": "aca", "member": 10, "action":2}}

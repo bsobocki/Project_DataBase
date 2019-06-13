@@ -15,3 +15,15 @@ You become a party member through active participation in her life. After one ye
 * Python3.x (to interpret all files \*.py),
 * PostgreSQL (DataBase)
 * psycopg2 (to create, connect and manage to the DataBase)
+
+# Run in Linux
+The start of the program follows by running the python interpreter using the 'python3' command  with the 'app.py' parameter   
+```
+~$ python3 app.py
+```
+Now you can enter new commands. For example:
+```
+~$ python3 app.py
+  > { "open" : { "database":"student", "login":"init", "password":"qwerty" }}
+  { "status":"OK" }
+  ```

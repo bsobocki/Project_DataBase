@@ -61,5 +61,5 @@ Function description:
     _`string  string  string`_
  * ***leader***
     * create leaders in the party
-    _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}  
+    _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}_  
     _`long_integer  integer  string  integer`_

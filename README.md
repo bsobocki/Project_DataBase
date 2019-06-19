@@ -47,13 +47,15 @@ Now you can enter new commands. For example:
   ![](https://github.com/bsobocki/Project_DataBase/blob/master/files/run_example.png)
 
 ## Functions
+
+After running the program with parameter _**--init**_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database using the _`init`_ user with password _`qwerty`_  
+
 Function description:  
 > * ***name***  
       description  
       example  
       type_of_the_first_argument type_of_the_second_argument ...
- * after running the program with parameter _**--init**_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database using the _`init`_ user with password _`qwerty`_
- * ***open*** 
+  * ***open*** 
     * connects to the database  
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
     _`string  string  string`_

@@ -19,8 +19,7 @@ You become a party member through active participation in her life. After one ye
   
   
 ## Before you run  
-To run the program a new database with the name _"party"_ and the superuser that can create users 
-must be created.
+To run the program a new database and the superuser that can create users must be created. You can connect with the database by the created user using _{ "open" : {"database":"<the_name_of_the_database>", "login":"<the_name_of_the_user", "password":"<the_users_password>"}}_ 
   
   
   

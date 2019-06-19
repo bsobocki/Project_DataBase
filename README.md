@@ -49,5 +49,5 @@ Now you can enter new commands. For example:
 ## Functions
  * after running the program with parameter _--init_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database by the _`init`_ user with password _`qwerty`_
  * open 
-    * connect with the database  
+    * connects to the database  
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_

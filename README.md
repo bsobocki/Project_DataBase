@@ -15,11 +15,13 @@ You become a party member through active participation in her life. After one ye
 * Python3.x (to interpret all files \*.py),
 * PostgreSQL (DataBase)
 * psycopg2 (to create, connect and manage to the DataBase)
-
+  
+  
 ## Before you run  
 To run the program a new database with the name _"party"_ and the superuser that can create users 
 must be created.
-
+  
+  
 ## Run in Linux
 The start of the program follows by running the python interpreter using the 'python3' command  with the 'app.py' parameter   
 ```

@@ -48,9 +48,9 @@ Now you can enter new commands. For example:
 
 ## Functions
 Function description:  
-> * ***\<name>***  
-    *\<example>  
-    `<type_of_the_first_argument type_of_the_second_argument ...>`
+> * ***name***  
+    * example  
+    `type_of_the_first_argument type_of_the_second_argument ...`
  * after running the program with parameter _**--init**_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database using the _`init`_ user with password _`qwerty`_
  * ***open*** 
     * connects to the database  

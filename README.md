@@ -28,6 +28,13 @@ Now you can enter new commands. For example:
   { "status":"OK" }
   ```
     
-  ***Running From `delete.sh`, `init.sh`, `run.sh`***  
+    
+### Running From `delete.sh`, `init.sh`, `run.sh`  
+  
+`delete.sh` - delete all data from the database "party"  
+`init.sh` - run the program with the _--init_ parameter  
+`run.sh` - run the program without _--init_  
+  
+  ***An Example :***  
     
   ![](https://github.com/bsobocki/Project_DataBase/blob/master/files/run_example.png)

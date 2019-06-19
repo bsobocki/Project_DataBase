@@ -39,7 +39,7 @@ Now you can enter new commands. For example:
 ### Running From `delete.sh`, `init.sh`, `run.sh`  
   
 `delete.sh` - delete all data from the database  
-`init.sh` - run the program with the _--init_ parameter 
+`init.sh` - run the program with the _--init_ parameter  
 `run.sh` - run the program without _--init_  
   
   ***An Example :***  

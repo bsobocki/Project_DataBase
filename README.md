@@ -50,4 +50,9 @@ Now you can enter new commands. For example:
  * after running the program with parameter _**--init**_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database using the _`init`_ user with password _`qwerty`_
  * ***open*** 
     * connects to the database  
-    _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_
+    _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
+    _string  string  string_
+ * ***leader***
+    * create leaders in the party
+    _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}  
+    _long integer  integer  string  integer_

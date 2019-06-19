@@ -51,8 +51,8 @@ Now you can enter new commands. For example:
  * ***open*** 
     * connects to the database  
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
-    _string  string  string_
+    _`string  string  string`_
  * ***leader***
     * create leaders in the party
     _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}  
-    _long integer  integer  string  integer_
+    _`long integer  integer  string  integer`_

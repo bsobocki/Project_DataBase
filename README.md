@@ -17,9 +17,11 @@ You become a party member through active participation in her life. After one ye
 * psycopg2 (to create, connect and manage to the DataBase)
   
   
+  
 ## Before you run  
 To run the program a new database with the name _"party"_ and the superuser that can create users 
 must be created.
+  
   
   
 ## Run in Linux

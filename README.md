@@ -47,6 +47,10 @@ Now you can enter new commands. For example:
   ![](https://github.com/bsobocki/Project_DataBase/blob/master/files/run_example.png)
 
 ## Functions
+Function description:  
+***\<name>***
+\<example>  
+`<type_of_the_first_argument type_of_the_second_argument ...>`
  * after running the program with parameter _**--init**_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database using the _`init`_ user with password _`qwerty`_
  * ***open*** 
     * connects to the database  
@@ -55,4 +59,4 @@ Now you can enter new commands. For example:
  * ***leader***
     * create leaders in the party
     _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}  
-    _`long integer  integer  string  integer`_
+    _`long_integer  integer  string  integer`_

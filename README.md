@@ -60,7 +60,7 @@ Function description:
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
     _`string  string  string`_
  * ***leader***
-    * create leaders in the party
+    * create leaders in the party  
     _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}_  
     _`long_integer  integer  string  integer`_
  * ***support***

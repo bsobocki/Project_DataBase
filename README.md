@@ -64,6 +64,6 @@ Function description:
     _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}_  
     _`long_integer  integer  string  integer`_
  * ***support***
-    * create an support action for the project (if project exists in the database you don't have to give authority)
+    * create an support action for the project (if the project exists in the database you don't have to give the authority of this project)
     _{ "support": { "timestamp": 1557475701, "password": "123", "member": 3, "action":600, "project":5000}}_  
     _`long_integer  string  integer  integer  integer`_

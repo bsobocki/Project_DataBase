@@ -58,12 +58,41 @@ Function description:
   * ***open*** 
     * connects to the database  
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
-    _`string  string  string`_
- * ***leader***
-    * create leaders in the party  
-    _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}_  
-    _`long_integer  integer  string  integer`_
- * ***support***
-    * create an support action for the project (if the project exists in the database you don't have to give the authority of this project)  
-    _{ "support": { "timestamp": 1557475701, "password": "123", "member": 3, "action":600, "project":5000}}_  
-    _`long_integer  string  integer  integer  integer`_
+    _`string  string  string`_  
+ * ***leader***  
+    * create leaders in the party    
+    _{"leader" : {"timestamp":42, "password":"aaa", "member":1}}_    
+    _`long_integer  integer  string  integer`_  
+ * ***support***  
+    * create a support action for the project (if the project exists in the database you don't have to give the authority of this project)  
+    _{ "support": { "timestamp":1557475701, "password":"123", "member":3, "action":600, "project":5000}}_  
+    _`long_integer  string  integer  integer  integer`_    
+  * ***protest***  
+    * create a protest action for the project (if the project exists in the database you don't have to give the authority of this project)  
+    _{ "protest": { "timestamp":1557475701, "password":"123", "member":3, "action":600, "project":6000, "authority":7}}_  
+    _`long_integer  string  integer  integer  integer  integer`_  
+  * ***upvote***  
+    * add a new up-vote on action  
+    _{ "upvote": { "timestamp": 1557475702, "password": "ako", "member": 3, "action":7}}_   
+    _`long_integer  string  integer  integer_  
+  * ***downvote***  
+    * add a new down-vote on action  
+    _{ "downvote": { "timestamp": 1557475702, "password": "aa", "member": 1, "action":7}}_  
+    _`long_integer  string  integer  integer  integer`_  
+  * ***actions***  
+    * write all actions \[optionally actions of the project or of the authority\]  
+    _{ "actions": {"timestamp":415124352435, "member":123, "password":"idontknowwahtishuoldwritehere"}}_  
+    _{ "actions": {"timestamp"122344352:, "member":42, "password":"future", "project":111}}_  
+    _{ "actions": {"timestamp":89746104548901, "member":44, "password":"youdontknowmebutiknowyou", "authority":4444}}_  
+  * ***projects***  
+    * write all projects \[optionally projects of the authority\]  
+    _{ "projects": {"timestamp":415124352435, "member":123, "password":"idontknowwahtishuoldwritehere"}}_  
+    _{ "projects": {"timestamp":89746104548901, "member":44, "password":"youdontknowmebutiknowyou", "authority":4444}}_  
+  * ***votes***  
+    * write all members with their votes \[optionally votes on the action or the project or all projects of the authority\]  
+    _{ "votes": {"timestamp":415252435, "member":123, "password":"idontknowwahtishuoldwritehere"}}_  
+    _{ "votes": {"timestamp":122344352, "member":42, "password":"future", "action":111}}_  
+    _{ "votes": {"timestamp":897469041, "member":44, "password":"youdontknowmebutiknowyou", "project":4444}}_  
+  * ***trolls***
+    * write all members whose propose actions having a bigger sum of all down-votes than up-votes  
+    _{ "trolls": {"timestamp" : 1557477060}}_

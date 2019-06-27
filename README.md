@@ -80,23 +80,23 @@ Function description:
     _{ "downvote": { "timestamp": 1557475702, "password": "aa", "member": 1, "action":7}}_  
     _`long_integer  string  integer  integer  integer`_  
   * ***actions***  
-    * write all actions \[optionally actions of the project or of the authority\]  
+    * write all actions \[optionally actions of the project or of the authority\]  `[<action> <type> <project> <authority> <upvotes> <downvotes>]`  
     _{ "actions": {"timestamp":415124352435, "member":123, "password":"idontknowwahtishouldwritehere"}}_  
     _{ "actions": {"timestamp"122344352:, "member":42, "password":"future", "project":111}}_  
     _{ "actions": {"timestamp":89746104548901, "member":44, "password":"youdontknowmebutiknowyou", "authority":4444}}_  
     _`long_integer  integer  string  [integer]`_  
   * ***projects***  
-    * write all projects \[optionally projects of the authority\]  
+    * write all projects \[optionally projects of the authority\]  `[<project> <authority>]`  
     _{ "projects": {"timestamp":415124352435, "member":123, "password":"idontknowwahtishuoldwritehere"}}_  
     _{ "projects": {"timestamp":89746104548901, "member":44, "password":"youdontknowmebutiknowyou", "authority":4444}}_  
     _`long_integer  integer string  [integer]`_  
   * ***votes***  
-    * write all members with their votes \[optionally votes on the action or the project or all projects of the authority\]  
+    * write all members with their votes \[optionally votes on the action or the project or all projects of the authority\]  `[<member> <upvotes> <downvotes>]`  
     _{ "votes": {"timestamp":415252435, "member":123, "password":"idontknowwahtishuoldwritehere"}}_  
     _{ "votes": {"timestamp":122344352, "member":42, "password":"future", "action":111}}_  
     _{ "votes": {"timestamp":897469041, "member":44, "password":"youdontknowmebutiknowyou", "project":4444}}_  
     _`long_integer  integer  integer  string  [integer]`_
   * ***trolls***
-    * write all members whose propose actions having a bigger sum of all down-votes than up-votes  
+    * write all members whose propose actions having a bigger sum of all down-votes than up-votes  `[<member> <upvotes> <downvotes> <active>]`  
     _{ "trolls": {"timestamp" : 1557477060}}_
     _`long_integer`_

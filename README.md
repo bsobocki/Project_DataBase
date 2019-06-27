@@ -108,15 +108,16 @@ Function description:
 ## A Bit About The Rules  
 
 **For all functions:**  
-  * if \<member> is the Party member \<password> must be the member's password  
-  * if the member with id = \<member> does not exist, a new member will be created with \<password>  
-  * if the member id is frozen, the error will be shown  
+  * if the member hasn't been active for over a year the member id will be frozen
+  * if _\<member>_ is the Party member _\<password>_ must be the member's password  
+  * if the member with id = _\<member>_ does not exist, a new member will be created with _\<password>_  
+  * if the member id is _frozen_, the error will be shown  
 
 **For _support_ and _protest_:**  
-  * if \<project> does exist in the data base then the authority will be skiped otherwise \<authority> must be given to create a new project  
+  * if _\<project>_ does exist in the data base then the authority will be skiped otherwise _\<authority>_ must be given to create a new project  
   
 **For _upvote_ and _downvote_:**  
-  * if \<action> does not exist in the database the error will be shown  
+  * if _\<action>_ does not exist in the database the error will be shown  
   * you can vote only once for a given action
   
 **For _trolls_, _actions_ and _projets_:**  

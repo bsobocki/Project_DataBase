@@ -1,10 +1,17 @@
 # Project_DataBase
 Project from DataBase Course from the Institute of Computer Science.
 
-## Table Of Contents
+# Table Of Contents
 - [Program Designed To Manage a Political Party](#Program-Designed-To-Manage-a-Political-Party)  
+- [How To Run](#how-to-run)  
+  - [The Neccessary Components](#the-necessary-components)  
+  - [Before You Run](#before-you-run)  
+  - [Run In Linux](#run-in-linux)  
+  - [Run With delete.sh, init.sh, run.sh](#run-with-delete-sh-init-sh-run-sh)  
+- [Functions](#functions)  
+- [A Bit About The Rules](#a-bit-about-the-rules)
   
-## Program Designed To Manage a Political Party  
+# Program Designed To Manage a Political Party  
 
 The program was created for the political party in need of a system of managing it, to keep a register of government and self-government activities that it supports or protects against.  
 The party is managed by the Team of Leaders who are its members.  
@@ -12,8 +19,8 @@ Member can propose actions and vote for or against them.
 You become a party member through active participation in her life. After one year of inactivity, understood as the lack of calls to the program functions authorized by a given person, the party member's righst are lost, and such account is permanently frozen (the member can not perform any action, but all information about him is further stored and reported). This rule applies to all party members, including leaders.
   
   
-## How To Run
-### The Necessary Components
+# How To Run
+## The Necessary Components
  To run the program you need :
 * Python3.x (to interpret all files \*.py),
 * PostgreSQL (DataBase)
@@ -39,7 +46,7 @@ Now you can enter new commands. For example:
   ```
     
     
-### Running From `delete.sh`, `init.sh`, `run.sh`  
+### Run With `delete.sh`, `init.sh`, `run.sh`  
   
 `delete.sh` - delete all data from the database  
 `init.sh` - run the program with the _--init_ parameter  
@@ -49,7 +56,7 @@ Now you can enter new commands. For example:
     
   ![](https://github.com/bsobocki/Project_DataBase/blob/master/files/run_example.png)
 
-## Functions
+# Functions
 
 After running the program with parameter _**--init**_ (for example via _init.sh_) a new user with login _`app`_ and password `qwerty` will be created. You must open a database using the _`init`_ user with password _`qwerty`_  
 
@@ -108,7 +115,7 @@ Function description:
     _{ "trolls": {"timestamp" : 1557477060}}_  
     _`long_integer`_
 
-## A Bit About The Rules  
+# A Bit About The Rules  
 
 **For *all functions*:**  
   * if the member hasn't been active for over a year the member id will be frozen

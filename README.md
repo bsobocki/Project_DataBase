@@ -102,7 +102,7 @@ Function description:
   * ***trolls***
     * write all members whose propose actions having a bigger sum of all down-votes than up-votes  
     returns: `[<member> <upvotes> <downvotes> <active>]`  
-    _{ "trolls": {"timestamp" : 1557477060}}_
+    _{ "trolls": {"timestamp" : 1557477060}}_  
     _`long_integer`_
 
 ## A Bit About The Rules  

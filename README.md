@@ -1,6 +1,8 @@
 # Project_DataBase
 Project from DataBase Course from the Institute of Computer Science.
 
+---  
+
 # Table Of Contents
 - [Program Designed To Manage a Political Party](#Program-Designed-To-Manage-a-Political-Party)  
 - [How To Run](#how-to-run)  
@@ -12,6 +14,8 @@ Project from DataBase Course from the Institute of Computer Science.
 - [Functions](#functions)  
 - [A Bit About The Rules](#a-bit-about-the-rules)
   
+---  
+
 # Program Designed To Manage a Political Party  
 
 The program was created for the political party in need of a system of managing it, to keep a register of government and self-government activities that it supports or protects against.  

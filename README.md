@@ -7,7 +7,7 @@ Project from DataBase Course from the Institute of Computer Science.
   - [The Neccessary Components](#the-necessary-components)  
   - [Before You Run](#before-you-run)  
   - [Run In Linux](#run-in-linux)  
-  - [Run With delete.sh, init.sh, run.sh](#run-with-delete-sh-init-sh-run-sh)  
+  - [Run With Scripts](#run-with-scripts)  
 - [Functions](#functions)  
 - [A Bit About The Rules](#a-bit-about-the-rules)
   
@@ -46,7 +46,8 @@ Now you can enter new commands. For example:
   ```
     
     
-### Run With `delete.sh`, `init.sh`, `run.sh`  
+### Run With Scripts  
+`delete.sh`, `init.sh`, `run.sh`  
   
 `delete.sh` - delete all data from the database  
 `init.sh` - run the program with the _--init_ parameter  

@@ -107,7 +107,7 @@ Function description:
 
 ## A Bit About The Rules  
 
-**For all functions:**  
+**For *all functions*:**  
   * if the member hasn't been active for over a year the member id will be frozen
   * if _\<member>_ is the Party member _\<password>_ must be the member's password  
   * if the member with id = _\<member>_ does not exist, a new member will be created with _\<password>_  

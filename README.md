@@ -7,7 +7,8 @@ Project from DataBase Course from the Institute of Computer Science.
   - [The Neccessary Components](#the-necessary-components)  
   - [Before You Run](#before-you-run)  
   - [Run In Linux](#run-in-linux)  
-  - [Run With Scripts](#run-with-scripts)  
+    - [Run With Python3](#run-with-python3)
+    - [Run With Scripts](#run-with-scripts)  
 - [Functions](#functions)  
 - [A Bit About The Rules](#a-bit-about-the-rules)
   
@@ -34,6 +35,9 @@ To run the program a new database and the superuser that can create users must b
   
   
 ## Run In Linux
+
+### Run With Python3  
+  
 The start of the program follows by running the python interpreter using the 'python3' command  with the 'app.py' parameter   
 ```
 ~$ python3 app.py
@@ -47,8 +51,9 @@ Now you can enter new commands. For example:
     
     
 ### Run With Scripts  
-`delete.sh`, `init.sh`, `run.sh`  
   
+`delete.sh`, `init.sh`, `run.sh`  
+   
 `delete.sh` - delete all data from the database  
 `init.sh` - run the program with the _--init_ parameter  
 `run.sh` - run the program without _--init_  

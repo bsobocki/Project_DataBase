@@ -56,7 +56,7 @@ Function description:
       _example_  
       _`a list of function's arguments types`_
   * ***open*** 
-    * connects to the database  
+    * connect to the database  
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
     _`string  string  string`_  
  * ***leader***  

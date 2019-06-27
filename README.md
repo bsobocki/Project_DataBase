@@ -2,9 +2,9 @@
 Project from DataBase Course from the Institute of Computer Science.
 
 ## Table Of Contents
-1) [Program Designed To Manage a Political Party](c)  
+- [Program Designed To Manage a Political Party](#Program-Designed-To-Manage-a-Political-Party)  
   
-## Program Designed To Manage a Political Party  (c)
+## Program Designed To Manage a Political Party  
 
 The program was created for the political party in need of a system of managing it, to keep a register of government and self-government activities that it supports or protects against.  
 The party is managed by the Team of Leaders who are its members.  

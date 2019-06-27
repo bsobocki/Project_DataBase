@@ -53,8 +53,8 @@ After running the program with parameter _**--init**_ (for example via _init.sh_
 Function description:  
 > * ***name***  
       description  
-      example  
-      type_of_the_first_argument type_of_the_second_argument ...
+      _example_  
+      _`a list of function's arguments`_
   * ***open*** 
     * connects to the database  
     _{"open" : {"database":"party", "login":"app", "password":"qwerty" }}_  
@@ -99,3 +99,4 @@ Function description:
   * ***trolls***
     * write all members whose propose actions having a bigger sum of all down-votes than up-votes  
     _{ "trolls": {"timestamp" : 1557477060}}_
+    _`long_integer`_

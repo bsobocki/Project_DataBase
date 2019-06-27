@@ -105,14 +105,19 @@ Function description:
     _{ "trolls": {"timestamp" : 1557477060}}_
     _`long_integer`_
 
-## A Bit About The Rules
+## A Bit About The Rules  
+
 **For all functions:**  
   * if \<member> is the Party member \<password> must be the member's password  
   * if the member with id = \<member> does not exist, a new member will be created with \<password>  
   * if the member id is frozen, the error will be shown  
+
 **For _support_ and _protest_:**  
   * if \<project> does exist in the data base then the authority will be skiped otherwise \<authority> must be given to create a new project  
+  
 **For _upvote_ and _downvote_:**  
-  * if \<action> does not exist in the database the error will be shown
+  * if \<action> does not exist in the database the error will be shown  
+  * you can vote only once for a given action
+  
 **For _trolls_, _actions_ and _projets_:**  
   * the member must be a lider

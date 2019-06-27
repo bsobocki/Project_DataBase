@@ -1,7 +1,7 @@
 # Project_DataBase
 Project from DataBase Course from the Institute of Computer Science.
 
-##   Program designed to manage a political party  
+##   Program Designed To Manage a Political Party  
 
 The program was created for the political party in need of a system of managing it, to keep a register of government and self-government activities that it supports or protects against.  
 The party is managed by the Team of Leaders who are its members.  
@@ -9,7 +9,7 @@ Member can propose actions and vote for or against them.
 You become a party member through active participation in her life. After one year of inactivity, understood as the lack of calls to the program functions authorized by a given person, the party member's righst are lost, and such account is permanently frozen (the member can not perform any action, but all information about him is further stored and reported). This rule applies to all party members, including leaders.
   
   
-## How to Run
+## How To Run
 ### The Necessary Components
  To run the program you need :
 * Python3.x (to interpret all files \*.py),
@@ -18,12 +18,12 @@ You become a party member through active participation in her life. After one ye
   
   
   
-## Before you run  
+## Before You Run  
 To run the program a new database and the superuser that can create users must be created. You can connect with the database by the created user using _{ "open" : {"database":"<the_name_of_the_database>", "login":"<the_name_of_the_user", "password":"<the_users_password>"}}_ 
   
   
   
-## Run in Linux
+## Run In Linux
 The start of the program follows by running the python interpreter using the 'python3' command  with the 'app.py' parameter   
 ```
 ~$ python3 app.py
@@ -104,3 +104,15 @@ Function description:
     returns: `[<member> <upvotes> <downvotes> <active>]`  
     _{ "trolls": {"timestamp" : 1557477060}}_
     _`long_integer`_
+
+## A Bit About The Rules
+**For all functions:**  
+  * if \<member> is the Party member \<password> must be the member's password  
+  * if the member with id = \<member> does not exist, a new member will be created with \<password>  
+  * if the member id is frozen, the error will be shown  
+**For _support_ and _protest_:**  
+  * if \<project> does exist in the data base then the authority will be skiped otherwise \<authority> must be given to create a new project  
+**For _upvote_ and _downvote_:**  
+  * if \<action> does not exist in the database the error will be shown
+**For _trolls_, _actions_ and _projets_:**  
+  * the member must be a lider

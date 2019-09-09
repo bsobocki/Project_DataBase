@@ -32,7 +32,7 @@ def add_member_do_action(d, obj, conn, action, status):
 def actions(conn, d):
     if member_leader(conn.cursor(), d["member"]):
         if "type" in d:
-                    print(show_actions_with_type(conn.cursor(), d["type"]))
+            print(show_actions_with_type(conn.cursor(), d["type"]))
         elif "project" in d:
             print(json_OK_object(show_actions_for_project(conn.cursor(), d["project"])))
         elif "authority" in d:

@@ -7,19 +7,18 @@ from json_objects import *
 from functions import *
 from interpreter import *
 
+# more than 2 args:
+# arg[0] is the name of the file, 
+# arg[1] = '--init', 
+# arg[2] is the name of the file with input 
+
 try:
-    ### more than 2 args (arg[0] is name of this file, arg[1] is --init, arg[2] is the name if the file with input) ###
     if len(sys.argv) == 2:
-        # if exist an argument --init 
         if(sys.argv[1]=='--init'):
-            # run interpreter
             interpreter()
         else:
             print(ERROR_status('Wrong program argument! The data base is closed'))
-
-    ### run program without --init ### 
     elif len(sys.argv) == 1:
-        # run interpreter
         interpreter()
     else:
         print(ERROR_status(""))

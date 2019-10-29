@@ -4,128 +4,124 @@ from functions import *
 from show_results import *
 import sys
 
-### add member if doesn't exists ###
-### call function 'action' if conditions have been met ###
-def add_member_do_action(d, obj, conn, action, status):
-
-    ### add a member if doesn't exists
-    if (not member_exists(conn.cursor(), d["member"])):
-        insert(conn.cursor(), 'member(id, password, leader, last_timestamp)', d["member"], 'crypt('+"'" + d["password"] + "', gen_salt('md5'))", 'FALSE', d["timestamp"])
-    
-    ### check last active of member
-    # if is less than 31536000 (365 days * 24 hours * 3600 seconds_in_hour)
-    if (d["timestamp"] - member_last_timestamp(conn.cursor(), d["member"]) < 31536000): 
-        ### if password is correct then do action
-        if (member_password(conn.cursor(), d["member"],d["password"]) != None):
-            action(conn, d)
-            if status != None:
-                print(status)
-        else:
-            print(ERROR_status('Wrong password! '))
-    else:
-        freeze(conn.cursor(), d["member"])
-        print(ERROR_status("Member with id = " + str(d["member"]) + ' is freezed! ' ))
-
-
-### procedures given as argument do add_member_do_action ###
-
-def actions(conn, d):
-    if member_leader(conn.cursor(), d["member"]):
-        if "type" in d:
-            print(show_actions_with_type(conn.cursor(), d["type"]))
-        elif "project" in d:
-            print(json_OK_object(show_actions_for_project(conn.cursor(), d["project"])))
-        elif "authority" in d:
-            print(json_OK_object(show_actions_for_authority(conn.cursor(), d["authority"])))
-        else:
-            print(json_OK_object(show_actions(conn.cursor())))
-    else:
-        print(ERROR_status("Member with id = "+str(d["member"])+" is not a leader!"))
-
-def projects(conn, d):
-    if member_leader(conn.cursor(), d["member"]):
-        if "authority" in d:
-            print(json_OK_object(show_projects_for_authority(conn.cursor(), d["authority"])))
-        else:
-            print(json_OK_object(show_projects(conn.cursor())))
-    else:
-        print(ERROR_status("Member with id = "+str(d["member"])+" is not a leader!"))
-
-
-def votes(conn, d):
-    if member_leader(conn.cursor(), d["member"]):
-        if "action" in d:
-            print(json_OK_object(show_votes_on_action(conn.cursor(), d["action"])))
-        elif "project" in d:
-            print(show_votes_on_project(conn.cursor(), d["project"]))
-        else:
-            print(json_OK_object(show_votes(conn.cursor())))
-    else:
-        print(ERROR_status("Member with id = "+str(d["member"])+" is not a leader!"))
-
-
-### the procedure interpreter reads objects from input ###
-
-#obj must be initialized!
-def interpreter(): # obj is an JSON_Object instance
-    # connection to PostgreSQL
+def interpreter():
     conn = None
-
-    # object JSON_Obj needed to read json objects from file
     obj = JSON_Obj()
-
     for line in sys.stdin:
-        # read next JSON Object from stdin
         obj.read_obj(line)
-        # read object which is a value of main key in JSON OBJECT
-        d = obj.get_values_as_dict() # get a value from the json object - python dictionary
-        # the end of the program is '\n'
-        if line != '' and line != '\n' and obj.get_current_Obj() != None:
+        vals_dict = obj.get_values_as_dict() 
+        if not program_end(obj):
             try:
                 if (obj.check_key(0,'open')):
-                    arg = list(obj.get_values_as_dict().values()) #get bvalues from json object
+                    arg =  get_values_from_json_object(obj)
                     if (len(sys.argv)>1 and sys.argv[1]=='--init'):
-                        conn = init(arg) #open the DataBase and create tables
+                        conn = init(arg) 
                     else:
-                        conn = psycopg2.connect(host='localhost',dbname=arg[0], user=arg[1], password=arg[2])# connent to the PostgreSQL server
+                        conn = psycopg2.connect(host='localhost',dbname=arg[0], user=arg[1], password=arg[2])
                     if conn == None:
                         print(ERROR_status("Wrong database name, login or password"))
                     else:
                         print(OK_status)
                 elif(obj.check_key(0,'leader')):
-                    add_member_do_action(d, obj, conn, lambda conn, d: update(conn.cursor(),'member','leader = TRUE','id = ' + str(d["member"])), OK_status)
+                    add_member_do_action(vals_dict, obj, conn, lambda conn, vals_dict: update(conn.cursor(),'member','leader = TRUE','id = ' + str(d["member"])), OK_status)
                 
                 elif(obj.check_key(0,'support')):
-                    add_member_do_action(d, obj, conn, lambda conn, d: insert(conn.cursor(), 'action(id, member_id, project_id, authority_id, type, timestamp)', d["action"], d["member"], d["project"], 0, "TRUE", d["timestamp"]),OK_status)
+                    add_member_do_action(vals_dict, obj, conn, lambda conn, vals_dict: insert(conn.cursor(), 'action(id, member_id, project_id, authority_id, type, timestamp)', d["action"], d["member"], d["project"], 0, "TRUE", d["timestamp"]),OK_status)
                 
                 elif(obj.check_key(0,'protest')):
-                    add_member_do_action(d, obj, conn, lambda conn, d: insert(conn.cursor(), 'action(id, member_id, project_id, authority_id, type, timestamp)', d["action"], d["member"], d["project"], 0, "FALSE", d["timestamp"]),OK_status)
+                    add_member_do_action(vals_dict, obj, conn, lambda conn, vals_dict: insert(conn.cursor(), 'action(id, member_id, project_id, authority_id, type, timestamp)', d["action"], d["member"], d["project"], 0, "FALSE", d["timestamp"]),OK_status)
                 
                 elif(obj.check_key(0,'upvote')):
-                    add_member_do_action(d, obj, conn, lambda conn, d: insert(conn.cursor(), 'votes(member_id, action_id, type, timestamp)', d["member"], d["action"], "TRUE", d["timestamp"]),OK_status)
+                    add_member_do_action(vals_dict, obj, conn, lambda conn, vals_dict: insert(conn.cursor(), 'votes(member_id, action_id, type, timestamp)', d["member"], d["action"], "TRUE", d["timestamp"]),OK_status)
                 
                 elif(obj.check_key(0,'downvote')):
-                    add_member_do_action(d, obj, conn, lambda conn, d: insert(conn.cursor(), 'votes(member_id, action_id, type, timestamp)', d["member"], d["action"], "FALSE", d["timestamp"]),OK_status)
+                    add_member_do_action(vals_dict, obj, conn, lambda conn, vals_dict: insert(conn.cursor(), 'votes(member_id, action_id, type, timestamp)', d["member"], d["action"], "FALSE", d["timestamp"]),OK_status)
                 
                 elif(obj.check_key(0,'actions')):
-                    add_member_do_action(d, obj,conn, actions, None)
+                    add_member_do_action(vals_dict, obj,conn, actions, None)
                 
                 elif(obj.check_key(0,'projects')):
-                    add_member_do_action(d, obj, conn, projects, None)
+                    add_member_do_action(vals_dict, obj, conn, projects, None)
                 
                 elif(obj.check_key(0,'votes')):
-                    add_member_do_action(d, obj, conn, votes, None)
+                    add_member_do_action(vals_dict, obj, conn, votes, None)
                 
                 elif(obj.check_key(0,'trolls')):
                     print(json_OK_object(trolls(conn.cursor())))
-                    
+                
                 else:
                     if(not obj.check_key(0,'open')):
                         print(ERROR_status('Function "'+list(obj.get_current_Obj())[0]+'" does not exist with parametr "--init"'))
+            
             except (Exception) as error:
                 print(ERROR_status(str(error)))
+        
         else:
             break
     if conn != None:
         conn.commit()
         conn.close()
+
+def program_end(obj):
+    return line == '' or line == '\n' or obj.get_current_Obj() == None
+
+def get_values_from_json_object(obj):
+    return list(obj.get_values_as_dict().values())
+
+### add member if doesn't exists ###
+### call function 'action' if conditions have been met ###
+def add_member_do_action(vals_dict, obj, conn, action, status):
+    if (not member_exists(conn.cursor(), vals_dict["member"])):
+        add_member(conn, vals_dict)
+    ### check last active of member
+    # musy be less than 31536000 (365 days * 24 hours * 3600 seconds_in_hour)
+    if (vals_dict["timestamp"] - member_last_timestamp(conn.cursor(), vals_dict["member"]) < 31536000): 
+        ### if password is correct then do action
+        if (is_password_correct(conn, vals_dict):
+            action(conn, vals_dict)
+            if status != None:
+                print(status)
+        else:
+            print(ERROR_status('Wrong password! '))
+    else:
+        freeze_member(conn.cursor(), vals_dict["member"])
+        print(ERROR_status("Member with id = " + str(vals_dict["member"]) + ' is freezed! ' ))
+
+def add_member(conn, vals_dict):
+    insert(conn.cursor(), 'member(id, password, leader, last_timestamp)', vals_dict["member"], 'crypt('+"'" + vals_dict["password"] + "', gen_salt('md5'))", 'FALSE', vals_dict["timestamp"])
+
+def is_password_correct(conn, vals_dict):
+    return member_password(conn.cursor(), vals_dict["member"], vals_dict["password"]) != None
+
+def actions(conn, vals_dict):
+    if member_leader(conn.cursor(), vals_dict["member"]):
+        if "type" in vals_dict:
+            print(show_actions_with_type(conn.cursor(), vals_dict["type"]))
+        elif "project" in vals_dict:
+            print(json_OK_object(show_actions_for_project(conn.cursor(), vals_dict["project"])))
+        elif "authority" in vals_dict:
+            print(json_OK_object(show_actions_for_authority(conn.cursor(), vals_dict["authority"])))
+        else:
+            print(json_OK_object(show_actions(conn.cursor())))
+    else:
+        print(ERROR_status("Member with id = "+str(vals_dict["member"])+" is not a leader!"))
+
+def projects(conn, vals_dict):
+    if member_leader(conn.cursor(), vals_dict["member"]):
+        if "authority" in vals_dict:
+            print(json_OK_object(show_projects_for_authority(conn.cursor(), vals_dict["authority"])))
+        else:
+            print(json_OK_object(show_projects(conn.cursor())))
+    else:
+        print(ERROR_status("Member with id = "+str(vals_dict["member"])+" is not a leader!"))
+
+def votes(conn, vals_dict):
+    if member_leader(conn.cursor(), vals_dict["member"]):
+        if "action" in vals_dict:
+            print(json_OK_object(show_votes_on_action(conn.cursor(), vals_dict["action"])))
+        elif "project" in vals_dict:
+            print(show_votes_on_project(conn.cursor(), vals_dict["project"]))
+        else:
+            print(json_OK_object(show_votes(conn.cursor())))
+    else:
+        print(ERROR_status("Member with id = "+str(vals_dict["member"])+" is not a leader!"))

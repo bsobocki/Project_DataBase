@@ -15,5 +15,5 @@ DROP TABLE IF EXISTS votes;
 DROP TABLE IF EXISTS action;
 DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS unique_indexes;
--- delete uder app
+-- delete user app
 DROP ROLE app;
